@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--别名-->
+    <typeAliases>
+        <package name="lianxi.pojo"/>
+    </typeAliases>
+<!--
+environments:配置数据库连接环境信息，可以配置多个environment,通过default属性切换不同的environment
+-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///mybatis?useSSL=false&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="wwl0106wwl"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--加载sql映射文件-->
+        <!--        <mapper resource="lianxi/mapper/userMapper.xml"/>-->
+        <!--Mapper代理方式-->
+        <package name="lianxi.mapper"/>
+    </mappers>
+</configuration>
